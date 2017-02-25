@@ -1,8 +1,3 @@
-# Requirements
-#   pip3 install rdflib
-#   pip3 install rdflib-jsonld
-#   pip3 install requests
-
 from ldn.sender import Sender
 
 import argparse
