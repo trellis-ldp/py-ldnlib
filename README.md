@@ -6,7 +6,7 @@ This is an implementation of a python3-based [Linked Data Notification](https://
 
 ## Adding an LDN sender to your code
 
-And LDN Sender can be implemented with code such as the following:
+An LDN Sender can be implemented with code such as the following:
 
 ```
 from ldn.sender import Sender
