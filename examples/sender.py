@@ -1,4 +1,4 @@
-from ldn.sender import Sender
+from ldnlib.sender import Sender
 
 import argparse
 

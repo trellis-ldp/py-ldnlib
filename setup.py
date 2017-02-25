@@ -2,7 +2,7 @@
 
 from setuptools import setup
 
-setup(name='py-ldn',
+setup(name='py-ldnlib',
       version='0.1.0',
       description='Python-based linked data notification libraries',
       author='Aaron Coburn',
@@ -14,8 +14,8 @@ setup(name='py-ldn',
 	"Programming Language :: Python :: 3",
 	"License :: OSI Approved :: Apache Software License",
         "Topic :: Internet :: WWW/HTTP"],
-      url='https://github.com/trellis-ldp/py-ldn',
-      packages=['ldn'],
+      url='https://github.com/trellis-ldp/py-ldnlib',
+      packages=['ldnlib'],
       install_requires=[
           'requests',
           'rdflib',
