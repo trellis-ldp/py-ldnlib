@@ -18,6 +18,6 @@ setup(name='py-ldn',
       packages=['ldn'],
       install_requires=[
           'requests',
-          'rdflib>=4.2',
-          'rdflib-jsonld>=4.2'])
+          'rdflib',
+          'rdflib-jsonld'])
 
