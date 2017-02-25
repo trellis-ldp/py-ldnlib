@@ -30,9 +30,15 @@ class Sender(object):
         r = requests.get(target, auth=kwargs.get('auth'), headers=headers)
         r.raise_for_status()
         # TODO -- check for HTML
-        g = Graph().parse(data=r.text, format=r.headers['content-type'])
-        for inbox in g[URIRef(target): URIRef(LDP_INBOX)]:
+        g = Graph().parse(data=r.text, format=self.__content_type_to_mime_type(
+            r.headers['content-type']))
+
+        for (subject, inbox) in g[:URIRef(LDP_INBOX)]:
+            print("Inbox: " + str(inbox))
             return str(inbox)
+
+    def __content_type_to_mime_type(self, content_type):
+        return content_type.split(";")[0].strip()
 
     def __accept_post_options(self, inbox, **kwargs):
         r = requests.options(inbox, auth=kwargs.get('auth'))
@@ -41,7 +47,7 @@ class Sender(object):
                 return JSON_LD
 
             for content_type in r.headers['accept-post'].split(','):
-                return content_type.strip()
+                return self.__content_type_to_mime_type(content_type)
 
     def __is_localhost(self, inbox):
         return ipaddress.ip_address(socket.gethostbyname(
