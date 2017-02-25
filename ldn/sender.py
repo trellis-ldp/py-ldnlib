@@ -23,7 +23,7 @@ class Sender(object):
         r = requests.head(target, auth=kwargs.get('auth'))
         r.raise_for_status()
         if LDP_INBOX in r.links:
-            return r.links[LDP_INBOX]
+            return r.links[LDP_INBOX].get('url')
 
     def __discover_get(self, target, **kwargs):
         headers = {'accept': self.accept_headers}
@@ -48,7 +48,7 @@ class Sender(object):
             urlparse(inbox).hostname)).is_loopback
 
     def __post_message(self, inbox, data, content_type, **kwargs):
-        if self.allow_localhost or self.__is_localhost(inbox):
+        if self.allow_localhost or not self.__is_localhost(inbox):
             headers = {"content-type": content_type}
             r = requests.post(inbox, data=data, headers=headers,
                               auth=kwargs.get('auth'))
