@@ -2,9 +2,11 @@
 
 [![Build Status](https://travis-ci.org/trellis-ldp/py-ldn.png?branch=master)](https://travis-ci.org/trellis-ldp/py-ldn)
 
-This is an implementation of a python-based [Linked Data Notification](https://www.w3.org/TR/ldn/) sender.
+This is an implementation of a python3-based [Linked Data Notification](https://www.w3.org/TR/ldn/) sender library.
 
-## Writing a LDN sender
+## Adding an LDN sender to your code
+
+And LDN Sender can be implemented with code such as the following:
 
 ```
 from ldn.sender import Sender
@@ -18,6 +20,23 @@ if inbox is not None:
 ```
 
 The `data` value may be a string, a dictionary, a list or an `rdflib`-based Graph.
+
+
+## Authentication
+
+If the target-resource of inbox-resource require authentication, an `auth` tuple may be supplied:
+
+```
+from ldn.sender import Sender
+
+sender = Sender()
+
+inbox = sender.discover(target_resource, auth=(username, password))
+
+if inbox is not None:
+    sender.send(inbox, data, auth=(username, password))
+```
+
 
 ## Maintainer
 
