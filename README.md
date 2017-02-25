@@ -4,6 +4,7 @@
 
 This is an implementation of a python3-based [Linked Data Notification](https://www.w3.org/TR/ldn/) sender library.
 
+
 ## Adding an LDN sender to your code
 
 An LDN Sender can be implemented with code such as the following:
@@ -24,7 +25,7 @@ The `data` value may be a string, a dictionary, a list or an `rdflib`-based Grap
 
 ## Authentication
 
-If the target-resource of inbox-resource require authentication, an `auth` tuple may be supplied:
+If the target-resource or inbox-resource requires authentication, an `auth` tuple may be supplied:
 
 ```
 from ldn.sender import Sender
