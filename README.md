@@ -1,6 +1,6 @@
 # Python-based Linked Data Notifications libraries
 
-[![Build Status](https://travis-ci.org/trellis-ldp/py-ldn.png?branch=master)](https://travis-ci.org/trellis-ldp/py-ldn)
+[![Build Status](https://travis-ci.org/trellis-ldp/py-ldnlib.png?branch=master)](https://travis-ci.org/trellis-ldp/py-ldnlib)
 
 This is an implementation of a python3-based [Linked Data Notification](https://www.w3.org/TR/ldn/) sender library.
 
@@ -10,7 +10,7 @@ This is an implementation of a python3-based [Linked Data Notification](https://
 An LDN Sender can be implemented with code such as the following:
 
 ```
-from ldn.sender import Sender
+from ldnlib.sender import Sender
 
 sender = Sender()
 
@@ -28,7 +28,7 @@ The `data` value may be a string, a dictionary, a list or an `rdflib`-based Grap
 If the target-resource or inbox-resource requires authentication, an `auth` tuple may be supplied:
 
 ```
-from ldn.sender import Sender
+from ldnlib.sender import Sender
 
 sender = Sender()
 
