@@ -1,3 +1,4 @@
+flake8
 rdflib
 rdflib-jsonld
 requests
