@@ -20,7 +20,8 @@ class Sender(object):
         self.accept_headers = kwargs.get('accept_headers', ACCEPT_HEADERS)
 
     def __discover_head(self, target, **kwargs):
-        r = requests.head(target, auth=kwargs.get('auth'))
+        r = requests.head(target, allow_redirects=True,
+                          auth=kwargs.get('auth'))
         r.raise_for_status()
         if LDP_INBOX in r.links:
             return r.links[LDP_INBOX].get('url')
@@ -75,7 +76,7 @@ class Sender(object):
             self.__post_message(inbox, data, JSON_LD, **kwargs)
         elif isinstance(data, Graph):
             ct = self.__accept_post_options(inbox, **kwargs) or JSON_LD
-            self.__post_message(inbox, data.serialize(format=content_type),
+            self.__post_message(inbox, data.serialize(format=ct),
                                 ct, **kwargs)
         else:
             raise TypeError(
