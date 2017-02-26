@@ -1,4 +1,4 @@
-from ldnlib.sender import Sender
+import ldnlib
 
 import argparse
 
@@ -18,12 +18,12 @@ if __name__ == "__main__":
     target_auth = (args.target_username, args.target_password) if args.target_username and args.target_password else None
     inbox_auth = (args.inbox_username, args.inbox_password) if args.inbox_username and args.inbox_password else None
 
-    ldn = Sender(allow_localhost=args.allow_local_inbox)
+    sender = ldnlib.Sender(allow_localhost=args.allow_local_inbox)
 
-    inbox = ldn.discover(args.target, auth=target_auth)
+    inbox = sender.discover(args.target, auth=target_auth)
     if inbox is not None:
         with open(args.filename, 'r') as f:
-            ldn.send(inbox, f.read(), auth=inbox_auth)
+            sender.send(inbox, f.read(), auth=inbox_auth)
             print("Added message")
     else:
         print("Sorry, no inbox defined for the resource")

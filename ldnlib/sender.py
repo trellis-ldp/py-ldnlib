@@ -35,7 +35,6 @@ class Sender(object):
             r.headers['content-type']))
 
         for (subject, inbox) in g[:URIRef(LDP_INBOX)]:
-            print("Inbox: " + str(inbox))
             return str(inbox)
 
     def __content_type_to_mime_type(self, content_type):

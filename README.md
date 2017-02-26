@@ -10,9 +10,9 @@ This is an implementation of a python3-based [Linked Data Notification](https://
 An LDN Sender can be implemented with code such as the following:
 
 ```
-from ldnlib.sender import Sender
+import ldnlib
 
-sender = Sender()
+sender = ldnlib.Sender()
 
 inbox = sender.discover(target_resource)
 
@@ -28,9 +28,9 @@ The `data` value may be a string, a dictionary, a list or an `rdflib`-based Grap
 If the target-resource or inbox-resource requires authentication, an `auth` tuple may be supplied:
 
 ```
-from ldnlib.sender import Sender
+import ldnlib
 
-sender = Sender()
+sender = ldnlib.Sender()
 
 inbox = sender.discover(target_resource, auth=(username, password))
 
