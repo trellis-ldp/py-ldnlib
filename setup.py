@@ -10,9 +10,9 @@ setup(name='py-ldnlib',
       maintainer='Aaron Coburn',
       maintainer_email='acoburn@amherst.edu',
       classifiers=[
-	"Programming Language :: Python",
-	"Programming Language :: Python :: 3",
-	"License :: OSI Approved :: Apache Software License",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: Apache Software License",
         "Topic :: Internet :: WWW/HTTP"],
       url='https://github.com/trellis-ldp/py-ldnlib',
       packages=['ldnlib'],
@@ -20,4 +20,3 @@ setup(name='py-ldnlib',
           'requests',
           'rdflib',
           'rdflib-jsonld'])
-
