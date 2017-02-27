@@ -33,7 +33,10 @@ if __name__ == "__main__":
 
     inbox = consumer.discover(args.target, auth=target_auth)
     if inbox is not None:
+        print("Found inbox: {}".format(inbox))
         for iri in consumer.notifications(inbox, auth=inbox_auth):
+            print("")
+            print("IRI: {}".format(iri))
             notification = consumer.notification(iri, auth=inbox_auth)
             print("Notification: {}".format(notification))
     else:
