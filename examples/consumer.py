@@ -37,12 +37,13 @@ if __name__ == "__main__":
         print("Found inbox: {}".format(inbox))
         notifications = consumer.notifications(inbox, auth=inbox_auth)
         print("Found {0} notifications: {1}".format(len(notifications),
-            " ".join(notifications)))
+              " ".join(notifications)))
 
         for iri in notifications:
             print("")
             print("IRI: {}".format(iri))
             notification = consumer.notification(iri, auth=inbox_auth)
-            print("Notification: {}".format(json.dumps(notification, ensure_ascii=False)))
+            print("Notification: {}".format(json.dumps(notification,
+                                            ensure_ascii=False)))
     else:
         print("Sorry, no inbox defined for the resource")
