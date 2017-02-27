@@ -5,10 +5,9 @@ import argparse
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="""For a provided web
-        resource, discover an ldp:inbox and POST the provided RDF to the
-        receiver, if one exists""")
+        resource, discover an ldp:inbox and GET the notifications from
+        that inbox, if one exists""")
     parser.add_argument("target", help="The IRI of the target web resource")
-    parser.add_argument("filename", help="The filename of the JSON-LD message")
     parser.add_argument("--target_username",
                         help="The username for the target resource")
     parser.add_argument("--target_password",
@@ -30,12 +29,12 @@ if __name__ == "__main__":
     if args.inbox_username and args.inbox_password:
         inbox_auth = (args.inbox_username, args.inbox_password)
 
-    sender = ldnlib.Sender(allow_localhost=args.allow_local_inbox)
+    consumer = ldnlib.Consumer()
 
-    inbox = sender.discover(args.target, auth=target_auth)
+    inbox = consumer.discover(args.target, auth=target_auth)
     if inbox is not None:
-        with open(args.filename, 'r') as f:
-            sender.send(inbox, f.read(), auth=inbox_auth)
-            print("Added message")
+        for iri in consumer.notifications(inbox, auth=inbox_auth):
+            notification = consumer.notification(iri, auth=inbox_auth)
+            print("Notification: {}".format(notification))
     else:
         print("Sorry, no inbox defined for the resource")

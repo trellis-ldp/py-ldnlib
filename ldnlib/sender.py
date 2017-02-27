@@ -16,7 +16,7 @@ class Sender(BaseLDN):
         self.allow_localhost = kwargs.get('allow_localhost', False)
 
     def __accept_post_options(self, inbox, **kwargs):
-        r = requests.options(inbox, auth=kwargs.get('auth'))
+        r = requests.options(inbox, **kwargs)
         if r.status_code == requests.codes.ok and 'accept-post' in r.headers:
             if self.JSON_LD in r.headers['accept-post']:
                 return self.JSON_LD
@@ -30,9 +30,9 @@ class Sender(BaseLDN):
 
     def __post_message(self, inbox, data, content_type, **kwargs):
         if self.allow_localhost or not self.__is_localhost(inbox):
-            headers = {"content-type": content_type}
-            r = requests.post(inbox, data=data, headers=headers,
-                              auth=kwargs.get('auth'))
+            headers = kwargs.pop("headers", dict())
+            headers['content-type'] = content_type
+            r = requests.post(inbox, data=data, headers=headers, **kwargs)
             r.raise_for_status()
         else:
             raise ValueError("Invalid local inbox.")
@@ -46,8 +46,8 @@ class Sender(BaseLDN):
             self.__post_message(inbox, data, self.JSON_LD, **kwargs)
         elif isinstance(data, Graph):
             ct = self.__accept_post_options(inbox, **kwargs) or self.JSON_LD
-            self.__post_message(inbox, data.serialize(format=ct),
-                                ct, **kwargs)
+            self.__post_message(inbox, data.serialize(format=ct), ct,
+                                **kwargs)
         else:
             raise TypeError(
                     "You cannot send data of type {}.".format(type(data)))
