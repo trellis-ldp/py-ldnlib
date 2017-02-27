@@ -6,10 +6,10 @@ import json
 import socket
 from urllib.parse import urlparse
 
-from . import base
+from .base import BaseLDN
 
 
-class Sender(base.BaseLDN):
+class Sender(BaseLDN):
 
     def __init__(self, **kwargs):
         super(self.__class__, self).__init__(**kwargs)
