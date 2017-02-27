@@ -1,6 +1,7 @@
 import ldnlib
 
 import argparse
+import json
 
 if __name__ == "__main__":
 
@@ -34,10 +35,14 @@ if __name__ == "__main__":
     inbox = consumer.discover(args.target, auth=target_auth)
     if inbox is not None:
         print("Found inbox: {}".format(inbox))
-        for iri in consumer.notifications(inbox, auth=inbox_auth):
+        notifications = consumer.notifications(inbox, auth=inbox_auth)
+        print("Found {0} notifications: {1}".format(len(notifications),
+            " ".join(notifications)))
+
+        for iri in notifications:
             print("")
             print("IRI: {}".format(iri))
             notification = consumer.notification(iri, auth=inbox_auth)
-            print("Notification: {}".format(notification))
+            print("Notification: {}".format(json.dumps(notification, ensure_ascii=False)))
     else:
         print("Sorry, no inbox defined for the resource")

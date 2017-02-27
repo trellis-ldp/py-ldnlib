@@ -36,7 +36,7 @@ inbox = consumer.discover(target_resource)
 
 if inbox is not None:
     for iri in consumer.notifications(inbox):
-        // fetch the notification as a JSON object
+        // fetch the notification as a Python dictionary
         notification = consumer.notification(iri)
 ```
 
