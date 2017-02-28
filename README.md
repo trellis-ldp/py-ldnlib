@@ -1,5 +1,7 @@
 # Python-based Linked Data Notifications libraries
 
+[![Version](https://img.shields.io/pypi/v/py-ldnlib.svg)](https://pypi.python.org/pypi/py-ldnlib)
+[![Python Versions](https://img.shields.io/pypi/pyversions/py-ldnlib.svg)](https://pypi.python.org/pypi/py-ldnlib)
 [![Build Status](https://travis-ci.org/trellis-ldp/py-ldnlib.png?branch=master)](https://travis-ci.org/trellis-ldp/py-ldnlib)
 
 This is an implementation of a python3-based [Linked Data Notification](https://www.w3.org/TR/ldn/) sender and consumer.
