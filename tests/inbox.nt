@@ -1,0 +1,7 @@
+<http://example.org/inbox> <http://www.w3.org/2004/02/skos/core#prefLabel> "Test Inbox" .
+<http://example.org/inbox> <http://www.w3.org/ns/ldp#contains> <http://example.org/inbox/1> .
+<http://example.org/inbox> <http://www.w3.org/ns/ldp#contains> <http://example.org/inbox/2> .
+<http://example.org/inbox> <http://www.w3.org/ns/ldp#contains> <http://example.org/inbox/3> .
+<http://example.org/inbox> <http://www.w3.org/ns/ldp#contains> <http://example.org/inbox/4> .
+<http://example.org/inbox> <http://www.w3.org/ns/ldp#contains> <http://example.org/inbox/5> .
+

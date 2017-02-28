@@ -1,0 +1,7 @@
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://example.org/inbox> skos:prefLabel "Test Inbox" ;
+    ldp:contains <http://example.org/inbox/1> , <http://example.org/inbox/2> ,
+                 <http://example.org/inbox/3> , <http://example.org/inbox/4> ,
+                 <http://example.org/inbox/5> .

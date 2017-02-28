@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "ldp": "http://www.w3.org/ns/ldp#",
+    "contains": {
+      "@id": "ldp:contains",
+      "@type": "@id"
+    }
+  },
+  "@id": "http://example.org/inbox",
+  "contains": [
+    "http://example.org/inbox/1",
+    "http://example.org/inbox/2",
+    "http://example.org/inbox/3",
+    "http://example.org/inbox/4",
+    "http://example.org/inbox/5"
+  ]
+}

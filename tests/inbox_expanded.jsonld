@@ -1,0 +1,22 @@
+[
+  {
+    "@id": "http://example.org/inbox",
+    "http://www.w3.org/ns/ldp#contains": [
+      {
+        "@id": "http://example.org/inbox/1"
+      },
+      {
+        "@id": "http://example.org/inbox/2"
+      },
+      {
+        "@id": "http://example.org/inbox/3"
+      },
+      {
+        "@id": "http://example.org/inbox/4"
+      },
+      {
+        "@id": "http://example.org/inbox/5"
+      }
+    ]
+  }
+]
