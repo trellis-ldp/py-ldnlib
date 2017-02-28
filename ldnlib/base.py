@@ -24,8 +24,7 @@ class BaseLDN(object):
         r = requests.get(target, **kwargs)
         r.raise_for_status()
         # TODO -- check for HTML
-        data = r.text
-        g = Graph().parse(data=data, format=self.content_type_to_mime_type(
+        g = Graph().parse(data=r.text, format=self.content_type_to_mime_type(
             r.headers['content-type']))
 
         for (subject, inbox) in g[:URIRef(self.LDP_INBOX)]:
