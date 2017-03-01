@@ -1,0 +1,7 @@
+{
+    "@context" : {
+        "schema" : "http://schema.org/",
+        "creator" : { "@id" : "schema:creator", "@type" : "@id" }
+    },
+    "creator" : "http://example.org/user"
+}
