@@ -1,0 +1,13 @@
+environment:
+    matrix:
+        - PYTHON: "C:\\Python34"
+        - PYTHON: "C:\\Python35"
+
+install:
+    - "%PYTHON%\\python.exe -m pip install pytest flake8 rdflib rdflib-jsonld requests"
+
+before_test:
+    - "%PYTHON%\\python.exe -m flake8"
+
+test_script:
+    - "%PYTHON%\\python.exe setup.py test"
