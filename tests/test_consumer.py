@@ -1,3 +1,4 @@
+import json
 import unittest
 from unittest.mock import Mock, patch
 
@@ -96,3 +97,21 @@ class TestConsumer(unittest.TestCase):
         self.assertTrue(prefLabel in notification[0])
         self.assertEquals("First notification",
                           notification[0][prefLabel][0]["@value"])
+
+    @patch('requests.get')
+    def test_notification_jsonld(self, mock_get):
+        mock_res = Mock()
+        mock_res.headers = {"content-type": "application/ld+json"}
+        with open("tests/notification1.json", "r") as f:
+            attrs = {'json.return_value': json.loads("[" + f.read() + "]")}
+            mock_res.configure_mock(**attrs)
+
+        mock_get.return_value = mock_res
+
+        notification = Consumer().notification("http://example.org/inbox/1")
+        self.assertTrue(1, len(notification))
+        self.assertTrue("@id" in notification[0])
+        self.assertEquals("http://example.org/inbox/1", notification[0]["@id"])
+        self.assertTrue("creator" in notification[0])
+        self.assertEquals("http://example.org/user",
+                          notification[0]["creator"])
