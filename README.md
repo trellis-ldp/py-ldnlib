@@ -4,6 +4,7 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/py-ldnlib.svg)](https://pypi.python.org/pypi/py-ldnlib)
 [![Build Status](https://travis-ci.org/trellis-ldp/py-ldnlib.png?branch=master)](https://travis-ci.org/trellis-ldp/py-ldnlib)
 [![Build status](https://ci.appveyor.com/api/projects/status/m7tl8ak46ihteouo?svg=true)](https://ci.appveyor.com/project/acoburn/py-ldnlib)
+[![Coverage Status](https://coveralls.io/repos/github/trellis-ldp/py-ldnlib/badge.svg?branch=master)](https://coveralls.io/github/trellis-ldp/py-ldnlib?branch=master)
 
 This is an implementation of a python3-based [Linked Data Notification](https://www.w3.org/TR/ldn/) sender and consumer.
 
