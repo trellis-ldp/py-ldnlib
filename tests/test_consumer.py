@@ -77,3 +77,22 @@ class TestConsumer(unittest.TestCase):
         self.assertTrue("http://example.org/inbox/3" in notifications)
         self.assertTrue("http://example.org/inbox/4" in notifications)
         self.assertTrue("http://example.org/inbox/5" in notifications)
+
+    @patch('requests.get')
+    def test_notification_turtle(self, mock_get):
+        mock_res = Mock()
+        mock_res.headers = {"content-type": "text/turtle; charset=utf-8"}
+        with open("tests/notification.ttl", "r") as f:
+            mock_res.text = f.read()
+
+        mock_get.return_value = mock_res
+
+        notification = Consumer().notification("http://example.org/inbox/1")
+        self.assertTrue(1, len(notification))
+        self.assertTrue("@id" in notification[0])
+        self.assertEquals("http://example.org/inbox/1", notification[0]["@id"])
+
+        prefLabel = "http://www.w3.org/2004/02/skos/core#prefLabel"
+        self.assertTrue(prefLabel in notification[0])
+        self.assertEquals("First notification",
+                          notification[0][prefLabel][0]["@value"])
