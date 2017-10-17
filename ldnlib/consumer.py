@@ -40,4 +40,4 @@ class Consumer(BaseLDN):
             return json.loads(r.text, encoding="UTF-8")
         else:
             g = Graph().parse(data=r.text, format=mime_type)
-            return json.loads(g.serialize(format="json-ld"))
+            return json.loads(g.serialize(format="json-ld"), encoding="UTF-8")
