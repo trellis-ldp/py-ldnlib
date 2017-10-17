@@ -7,4 +7,6 @@ before_script:
 
 script:
     coverage run --source=ldnlib setup.py test
-    coveralls
+
+after_success:
+    - coveralls
