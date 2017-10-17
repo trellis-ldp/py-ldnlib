@@ -37,7 +37,7 @@ class Consumer(BaseLDN):
         r.raise_for_status()
         mime_type = self.content_type_to_mime_type(r.headers['content-type'])
         if mime_type == self.JSON_LD:
-            return json.loads(r.text, encoding="UTF-8")
+            return r.json()
         else:
             g = Graph().parse(data=r.text, format=mime_type)
-            return json.loads(g.serialize(format="json-ld"), encoding="UTF-8")
+            return json.loads(g.serialize(format="json-ld", encoding="utf-8"))
