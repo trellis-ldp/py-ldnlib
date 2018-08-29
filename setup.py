@@ -29,7 +29,7 @@ with open('README.rst', 'r') as f:
     readme = f.read()
 
 setup(name='py-ldnlib',
-      version='0.1.1',
+      version='0.1.2',
       description='Python-based linked data notification libraries',
       long_description=readme,
       long_description_content_type="text/x-rst",

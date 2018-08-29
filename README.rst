@@ -23,7 +23,7 @@ This is an implementation of a python3-based `Linked Data Notification <https://
 Installing
 ----------
 
-``pip install py-ldplib``
+``pip install py-ldnlib``
 
 Adding an LDN sender to your code
 ---------------------------------
