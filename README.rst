@@ -30,6 +30,11 @@ Python-based Linked Data Notifications libraries
 
 This is an implementation of a python3-based `Linked Data Notification <https://www.w3.org/TR/ldn/>`_ sender and consumer.
 
+Installing
+----------
+
+``pip install py-ldplib``
+
 Adding an LDN sender to your code
 ---------------------------------
 

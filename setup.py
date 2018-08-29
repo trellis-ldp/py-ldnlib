@@ -28,6 +28,7 @@ class PyTest(TestCommand):
 setup(name='py-ldnlib',
       version='0.1.1',
       description='Python-based linked data notification libraries',
+      long_description=readme,
       author='Aaron Coburn',
       author_email='acoburn@amherst.edu',
       maintainer='Aaron Coburn',
