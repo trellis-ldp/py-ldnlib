@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/pypi/v/py-ldnlib.svg)](https://pypi.python.org/pypi/py-ldnlib)
 [![Python Versions](https://img.shields.io/pypi/pyversions/py-ldnlib.svg)](https://pypi.python.org/pypi/py-ldnlib)
-[![Build Status](https://travis-ci.com/trellis-ldp/py-ldnlib.png?branch=master)](https://travis-ci.com/trellis-ldp/py-ldnlib)
+[![Build Status](https://travis-ci.com/trellis-ldp/py-ldnlib.svg?branch=master)](https://travis-ci.com/trellis-ldp/py-ldnlib)
 [![Build status](https://ci.appveyor.com/api/projects/status/m7tl8ak46ihteouo?svg=true)](https://ci.appveyor.com/project/acoburn/py-ldnlib)
 [![Coverage Status](https://coveralls.io/repos/github/trellis-ldp/py-ldnlib/badge.svg?branch=master)](https://coveralls.io/github/trellis-ldp/py-ldnlib?branch=master)
 
