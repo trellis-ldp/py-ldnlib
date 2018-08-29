@@ -8,19 +8,9 @@ Python-based Linked Data Notifications libraries
    :alt: Version
 
 
-.. image:: https://img.shields.io/pypi/pyversions/py-ldnlib.svg
-   :target: https://pypi.python.org/pypi/py-ldnlib
-   :alt: Python Versions
-
-
 .. image:: https://travis-ci.com/trellis-ldp/py-ldnlib.svg?branch=master
    :target: https://travis-ci.com/trellis-ldp/py-ldnlib
    :alt: Build Status
-
-
-.. image:: https://ci.appveyor.com/api/projects/status/m7tl8ak46ihteouo?svg=true
-   :target: https://ci.appveyor.com/project/acoburn/py-ldnlib
-   :alt: Build status
 
 
 .. image:: https://coveralls.io/repos/github/trellis-ldp/py-ldnlib/badge.svg?branch=master
