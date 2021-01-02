@@ -8,14 +8,8 @@ Python-based Linked Data Notifications libraries
    :alt: Version
 
 
-.. image:: https://travis-ci.com/trellis-ldp/py-ldnlib.svg?branch=main
-   :target: https://travis-ci.com/trellis-ldp/py-ldnlib
+.. image:: https://github.com/trellis-ldp/py-ldnlib/workflows/Python%20Linked%20Data%20Notifications/badge.svg
    :alt: Build Status
-
-
-.. image:: https://coveralls.io/repos/github/trellis-ldp/py-ldnlib/badge.svg?branch=main
-   :target: https://coveralls.io/github/trellis-ldp/py-ldnlib?branch=main
-   :alt: Coverage Status
 
 
 This is an implementation of a python3-based `Linked Data Notification <https://www.w3.org/TR/ldn/>`_ sender and consumer.
