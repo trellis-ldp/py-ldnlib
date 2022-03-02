@@ -18,7 +18,7 @@ class TestSender(unittest.TestCase):
             data = f.read()
 
         Sender().send(self.INBOX, data)
-        self.assertEquals(str, type(data))
+        self.assertEqual(str, type(data))
         mock_post.assert_called_once_with(self.INBOX, data=data,
                                           headers=self.HEADERS)
 
@@ -29,7 +29,7 @@ class TestSender(unittest.TestCase):
             data = json.loads(f.read())
 
         Sender().send(self.INBOX, data)
-        self.assertEquals(dict, type(data))
+        self.assertEqual(dict, type(data))
         mock_post.assert_called_once_with(self.INBOX, data=json.dumps(data),
                                           headers=self.HEADERS)
 
@@ -40,7 +40,7 @@ class TestSender(unittest.TestCase):
             data = json.loads("[" + f.read() + "]")
 
         Sender().send(self.INBOX, data)
-        self.assertEquals(list, type(data))
+        self.assertEqual(list, type(data))
         mock_post.assert_called_once_with(self.INBOX, data=json.dumps(data),
                                           headers=self.HEADERS)
 
@@ -49,6 +49,6 @@ class TestSender(unittest.TestCase):
         data = Graph().parse("tests/notification.nt", format="ntriples")
 
         Sender().send(self.INBOX, data)
-        self.assertEquals(Graph, type(data))
+        self.assertEqual(Graph, type(data))
         mock_post.assert_called_once_with(self.INBOX, data=data.serialize(
             format="application/ld+json"), headers=self.HEADERS)
