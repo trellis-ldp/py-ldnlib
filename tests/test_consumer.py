@@ -96,7 +96,7 @@ class TestConsumer(unittest.TestCase):
         prefLabel = "http://www.w3.org/2004/02/skos/core#prefLabel"
         self.assertTrue(prefLabel in notification[0])
         self.assertEqual("First notification",
-                          notification[0][prefLabel][0]["@value"])
+                         notification[0][prefLabel][0]["@value"])
 
     @patch('requests.get')
     def test_notification_jsonld(self, mock_get):
@@ -114,4 +114,4 @@ class TestConsumer(unittest.TestCase):
         self.assertEqual("http://example.org/inbox/1", notification[0]["@id"])
         self.assertTrue("creator" in notification[0])
         self.assertEqual("http://example.org/user",
-                          notification[0]["creator"])
+                         notification[0]["creator"])
